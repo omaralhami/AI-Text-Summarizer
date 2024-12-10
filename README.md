@@ -4,6 +4,10 @@ An open-source web application that uses artificial intelligence to generate con
 
 ![AI Text Summarizer Demo](demo-screenshot.png)
 
+🔗 **[Live Demo](https://only-mar.github.io/AI-Text-Summarizer/)** | [Documentation](#getting-started) | [API Reference](#api-endpoints)
+
+> **Note:** The live demo is a frontend-only preview. For full functionality including AI summarization, please run the backend server locally following the [installation instructions](#installation).
+
 ## Features
 
 - 🤖 AI-powered text summarization using BART-large-CNN model
@@ -48,7 +52,7 @@ cd AI-Text-Summarizer
 ```bash
 cd backend
 pip install -r requirements.txt
-python -m uvicorn app:app --reload --port 8002
+python -m uvicorn app:app --reload --port 8000
 ```
 
 3. Set up the frontend
@@ -60,7 +64,7 @@ npm start
 
 The application will be available at:
 - Frontend: http://localhost:3000
-- Backend API: http://localhost:8002
+- Backend API: http://localhost:8000
 
 ## API Endpoints
 
