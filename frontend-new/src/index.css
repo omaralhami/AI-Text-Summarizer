@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply transition-colors duration-300;
+  }
+
+  /* Better focus outline */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-main ring-offset-2 ring-offset-white dark:ring-offset-gray-800;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-main to-primary-dark;
+  }
+
+  .button-gradient {
+    @apply bg-gradient-to-r from-primary-main to-primary-dark hover:from-primary-dark hover:to-primary-main;
+  }
+}
+
+@layer utilities {
+  .transition-default {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .animate-hover {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .animate-press {
+    @apply active:scale-95 transition-transform duration-150;
+  }
+
+  .shadow-hover {
+    @apply transition-shadow duration-300 hover:shadow-lg;
+  }
+} 
