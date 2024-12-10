@@ -153,7 +153,7 @@ If you find this project helpful, consider:
 ## Author
 
 **Omar Alhami (Mar)**
-- Website: [so-creatvetech.com](https://so-creatvetech.com)
+- Website: [so-creatvetech.com](https://so-creativetech.com)
 - GitHub: [@only-mar](https://github.com/only-mar)
 - Email: omar.alhami@gmail.com
 
