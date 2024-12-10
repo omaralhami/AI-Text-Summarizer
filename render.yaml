@@ -4,10 +4,19 @@ services:
     env: python
     region: oregon
     plan: free
-    buildCommand: cd backend && pip install -r requirements.txt
-    startCommand: cd backend && gunicorn app:app -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+      pip install -r backend/requirements.txt
+    startCommand: |
+      cd backend
+      gunicorn app:app --workers 1 --worker-class uvicorn.workers.UvicornWorker --timeout 180 --bind 0.0.0.0:$PORT --max-requests 5 --max-requests-jitter 2
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
       - key: PORT
-        value: 8000 
+        value: 8000
+      - key: TRANSFORMERS_CACHE
+        value: /tmp/transformers_cache
+      - key: TORCH_HOME
+        value: /tmp/torch_home
