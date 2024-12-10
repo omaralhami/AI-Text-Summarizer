@@ -2,11 +2,16 @@
 
 An open-source web application that uses artificial intelligence to generate concise and meaningful summaries from long texts. Built with React, FastAPI, and Hugging Face's transformers library.
 
-![AI Text Summarizer Demo](demo-screenshot.png)
-
 🔗 **[Live Demo](https://only-mar.github.io/AI-Text-Summarizer/)** | [Documentation](#getting-started) | [API Reference](#api-endpoints)
 
-> **Note:** The live demo is a frontend-only preview. For full functionality including AI summarization, please run the backend server locally following the [installation instructions](#installation).
+![AI Text Summarizer Demo](demo-screenshot.png)
+
+## Live Services
+
+- **Frontend:** [https://only-mar.github.io/AI-Text-Summarizer/](https://only-mar.github.io/AI-Text-Summarizer/)
+- **Backend API:** [https://ai-text-summarizer-api.onrender.com](https://ai-text-summarizer-api.onrender.com)
+
+> **Note:** The backend is hosted on Render's free tier, which may have cold starts. Initial requests might take 30-60 seconds while the server spins up.
 
 ## Features
 
@@ -68,11 +73,18 @@ The application will be available at:
 
 ## API Endpoints
 
+The API is available at `https://ai-text-summarizer-api.onrender.com`
+
 ### Health Check
 ```
 GET /api/health
 ```
 Returns the status of the summarization service.
+
+Example:
+```bash
+curl https://ai-text-summarizer-api.onrender.com/api/health
+```
 
 ### Summarize Text
 ```
@@ -86,6 +98,33 @@ Request body:
   "min_length": 30    // optional
 }
 ```
+
+Example:
+```bash
+curl -X POST https://ai-text-summarizer-api.onrender.com/api/summarize \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Your text to summarize"}'
+```
+
+## Local Development
+
+If you prefer to run the services locally:
+
+### Backend (Local)
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn app:app --reload --port 8000
+```
+Local backend will be available at: http://localhost:8000
+
+### Frontend (Local)
+```bash
+cd frontend-new
+npm install
+npm start
+```
+Local frontend will be available at: http://localhost:3000
 
 ## Contributing
 
