@@ -4,13 +4,22 @@ from pydantic import BaseModel
 from transformers import pipeline
 import torch
 from typing import Optional
+import os
+from dotenv import load_dotenv
 
-app = FastAPI()
+load_dotenv()
+
+app = FastAPI(title="AI Text Summarizer API")
 
 # Configure CORS
+allowed_origins = [
+    "http://localhost:3000",
+    "https://only-mar.github.io"
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React app's address
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,6 +37,10 @@ class SummarizeRequest(BaseModel):
     text: str
     max_length: Optional[int] = 130
     min_length: Optional[int] = 30
+
+@app.get("/")
+async def root():
+    return {"message": "AI Text Summarizer API is running"}
 
 @app.get("/api/health")
 async def health_check():

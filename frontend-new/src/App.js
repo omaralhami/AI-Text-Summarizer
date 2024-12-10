@@ -13,6 +13,11 @@ import axios from 'axios';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Contact from './pages/Contact';
 
+// API URL based on environment
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://ai-text-summarizer-api.onrender.com'
+  : 'http://localhost:8000';
+
 function MainContent() {
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -45,7 +50,7 @@ function MainContent() {
 
   const checkServerHealth = async () => {
     try {
-      const response = await axios.get('http://localhost:8002/api/health');
+      const response = await axios.get(`${API_URL}/api/health`);
       setServerStatus(response.data.status);
     } catch (error) {
       setServerStatus('unhealthy');
@@ -64,7 +69,7 @@ function MainContent() {
     setSummary('');
 
     try {
-      const response = await axios.post('http://localhost:8002/api/summarize', {
+      const response = await axios.post(`${API_URL}/api/summarize`, {
         text: inputText,
         max_length: 130,
         min_length: 30
