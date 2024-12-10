@@ -2,10 +2,12 @@ services:
   - type: web
     name: ai-text-summarizer-api
     env: python
-    buildCommand: pip install -r backend/requirements.txt
+    region: oregon
+    plan: free
+    buildCommand: cd backend && pip install -r requirements.txt
     startCommand: cd backend && gunicorn app:app -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0
+        value: 3.11.0
       - key: PORT
         value: 8000 
