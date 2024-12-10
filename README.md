@@ -4,6 +4,10 @@ An open-source web application that uses artificial intelligence to generate con
 
 🔗 **[Live Demo](https://only-mar.github.io/AI-Text-Summarizer/)** | [Documentation](#getting-started) | [API Reference](#api-endpoints)
 
+<a href="https://www.buymeacoffee.com/onlymar" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
+</a>
+
 ![AI Text Summarizer Demo](demo-screenshot.png)
 
 ## Live Services
@@ -141,9 +145,14 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 If you find this project helpful, consider:
 
 - ⭐ Starring the repository
-- 🍕 [Buying me a coffee](https://www.buymeacoffee.com/onlymar)
-- 🐛 Contributing to the codebase
+- 🍕 Contributing to the codebase
 - 📢 Sharing with others
+
+<p align="center">
+  <a href="https://www.buymeacoffee.com/onlymar" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
+  </a>
+</p>
 
 ## Author
 
