@@ -48,7 +48,7 @@ cd AI-Text-Summarizer
 ```bash
 cd backend
 pip install -r requirements.txt
-python -m uvicorn app:app --reload --port 8002
+python -m uvicorn app:app --reload --port 8000
 ```
 
 3. Set up the frontend
@@ -60,7 +60,7 @@ npm start
 
 The application will be available at:
 - Frontend: http://localhost:3000
-- Backend API: http://localhost:8002
+- Backend API: http://localhost:8000
 
 ## API Endpoints
 
