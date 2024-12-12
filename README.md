@@ -11,6 +11,10 @@
 
 <div align="center">
 
+### 🚀 [Try the Live Demo](https://only-mar.github.io/AI-Text-Summarizer)
+
+> **Note:** The backend is hosted on Render's free tier, which may have cold starts. Initial requests might take 30-60 seconds while the server spins up.
+
 **Love this project? Consider supporting its development!**
 
 <a href="https://www.buymeacoffee.com/onlymar" target="_blank">
@@ -152,7 +156,7 @@ If you find this project helpful, consider:
 
 - ⭐ Starring the repository
 - 🍕 Contributing to the codebase
-- 📢 Sharing with others
+- 📄 Sharing with others
 
 <div align="center">
 
