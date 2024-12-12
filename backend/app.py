@@ -20,7 +20,8 @@ app = FastAPI(title="AI Text Summarizer API")
 allowed_origins = [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://only-mar.github.io"
+    "https://only-mar.github.io",
+    "https://only-mar.github.io/AI-Text-Summarizer"
 ]
 
 app.add_middleware(
