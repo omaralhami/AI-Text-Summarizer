@@ -4,7 +4,7 @@ An open-source web application that uses artificial intelligence to generate con
 
 🔗 **[Live Demo](https://only-mar.github.io/AI-Text-Summarizer/)** | [Documentation](#getting-started) | [API Reference](#api-endpoints)
 
-![AI Text Summarizer Demo](demo-screenshot.png)
+![AI Text Summarizer Demo](https://github.com/only-mar/AI-Text-Summarizer/blob/main/image/image.png)
 
 ## Live Services
 
