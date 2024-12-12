@@ -6,6 +6,11 @@ import torch
 from typing import Optional
 import os
 from dotenv import load_dotenv
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -14,6 +19,7 @@ app = FastAPI(title="AI Text Summarizer API")
 # Configure CORS
 allowed_origins = [
     "http://localhost:3000",
+    "http://localhost:3001",
     "https://only-mar.github.io"
 ]
 
@@ -25,13 +31,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize the summarization pipeline
-try:
-    device = 0 if torch.cuda.is_available() else -1
-    summarizer = pipeline("summarization", model="facebook/bart-large-cnn", device=device)
-except Exception as e:
-    print(f"Error loading model: {e}")
-    summarizer = None
+# Initialize variables
+summarizer = None
+
+def load_summarizer():
+    """Load the summarization model."""
+    try:
+        logger.info("Loading summarization model...")
+        device = "cpu"  # Force CPU usage for now
+        model = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6", device=device)
+        logger.info("Model loaded successfully")
+        return model
+    except Exception as e:
+        logger.error(f"Error loading model: {str(e)}")
+        return None
 
 class SummarizeRequest(BaseModel):
     text: str
@@ -44,14 +57,22 @@ async def root():
 
 @app.get("/api/health")
 async def health_check():
+    global summarizer
     if summarizer is None:
-        raise HTTPException(status_code=503, detail="Summarization model not loaded")
+        summarizer = load_summarizer()
+    
+    if summarizer is None:
+        raise HTTPException(status_code=503, detail="Failed to load model")
     return {"status": "healthy"}
 
 @app.post("/api/summarize")
 async def summarize_text(request: SummarizeRequest):
+    global summarizer
     if summarizer is None:
-        raise HTTPException(status_code=503, detail="Summarization model not loaded")
+        summarizer = load_summarizer()
+    
+    if summarizer is None:
+        raise HTTPException(status_code=503, detail="Failed to load model")
     
     if not request.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty")
@@ -92,5 +113,5 @@ async def summarize_text(request: SummarizeRequest):
         return {"summary": final_summary}
     
     except Exception as e:
-        print(f"Error during summarization: {e}")
-        raise HTTPException(status_code=500, detail="Failed to generate summary") 
+        logger.error(f"Error during summarization: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to generate summary: {str(e)}")
