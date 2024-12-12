@@ -40,11 +40,36 @@ def load_summarizer():
     try:
         logger.info("Loading summarization model...")
         device = "cpu"  # Force CPU usage for now
-        model = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6", device=device)
+        logger.info(f"Using device: {device}")
+        logger.info("Initializing pipeline with model: sshleifer/distilbart-cnn-12-6")
+        
+        # Add timeout for model loading
+        import signal
+        def timeout_handler(signum, frame):
+            raise TimeoutError("Model loading timed out")
+        
+        # Set 30 second timeout
+        signal.signal(signal.SIGALRM, timeout_handler)
+        signal.alarm(30)
+        
+        try:
+            model = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6", device=device)
+            # Cancel the timeout
+            signal.alarm(0)
+        except TimeoutError:
+            logger.error("Model loading timed out")
+            return None
+        except Exception as e:
+            logger.error(f"Error in pipeline creation: {str(e)}")
+            return None
+        
         logger.info("Model loaded successfully")
         return model
     except Exception as e:
         logger.error(f"Error loading model: {str(e)}")
+        logger.error(f"Error type: {type(e)}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         return None
 
 class SummarizeRequest(BaseModel):
