@@ -7,11 +7,17 @@
 [![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?logo=react)](https://reactjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?logo=fastapi)](https://fastapi.tiangolo.com/)
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/onlymar" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
-  </a>
-</p>
+![AI Text Summarizer Demo](https://github.com/only-mar/AI-Text-Summarizer/blob/main/image/image.png)
+
+<div align="center">
+
+**Love this project? Consider supporting its development!**
+
+<a href="https://www.buymeacoffee.com/onlymar" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
+</a>
+
+</div>
 
 ## ✨ Features
 
@@ -148,12 +154,18 @@ If you find this project helpful, consider:
 - 🍕 Contributing to the codebase
 - 📢 Sharing with others
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/onlymar" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
-  </a>
-</p>
+<div align="center">
+
+**Help keep this project alive!**
+
+<a href="https://www.buymeacoffee.com/onlymar" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;">
+</a>
+
+</div>
 
 ---
 
-Made with ❤️ by [Mar](https://github.com/only-mar)
+<div align="center">
+Made with ❤️ by <a href="https://github.com/only-mar">Mar</a>
+</div>
