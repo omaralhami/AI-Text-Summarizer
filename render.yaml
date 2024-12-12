@@ -1,22 +1,10 @@
 services:
   - type: web
     name: ai-text-summarizer-api
-    env: python
-    region: oregon
-    plan: free
-    buildCommand: |
-      python -m pip install --upgrade pip
-      pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-      pip install -r requirements.txt
-    startCommand: |
-      gunicorn app:app --workers 1 --worker-class uvicorn.workers.UvicornWorker --timeout 180 --bind 0.0.0.0:$PORT --max-requests 5 --max-requests-jitter 2
-    root: backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    rootDir: backend
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.0
-      - key: PORT
-        value: 8000
-      - key: TRANSFORMERS_CACHE
-        value: /tmp/transformers_cache
-      - key: TORCH_HOME
-        value: /tmp/torch_home
+        value: 3.9.0
