@@ -11,7 +11,7 @@
 
 <div align="center">
 
-### 🚀 [Try the Live Demo](https://only-mar.github.io/AI-Text-Summarizer)
+### 🚀 [Try the Live Demo](https://omaralhami.github.io/AI-Text-Summarizer/)
 
 > **Note:** The backend is hosted on Render's free tier, which may have cold starts. Initial requests might take 30-60 seconds while the server spins up.
 
